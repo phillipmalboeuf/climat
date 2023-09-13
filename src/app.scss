@@ -1,0 +1,105 @@
+:root {
+	font-family: $text;
+	background-color: $pistachio;
+	color: $moss;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+	font-size: $base;
+  line-height: $scale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $display;
+  font-weight: bold;
+  max-width: 36em;
+  margin-top: 0;
+  margin-bottom: $base;
+}
+
+h1 {
+	font-size: $base * $scale * 3;
+  line-height: 1;
+
+  &.h1--huge {
+    font-size: $base * $scale * 5;
+  }
+}
+
+h2 {
+	font-size: $base * $scale * 2;
+  line-height: 1;
+}
+
+h3 {
+  font-size: $base * $scale * 1.25;
+  font-family: $alt;
+}
+
+h4 {
+  font-size: $base * $scale;
+}
+
+h5 {
+  font-size: $base * $scale;
+}
+
+h6 {
+  font-size: $base / $scale;
+  font-family: $alt;
+  text-transform: uppercase;
+}
+
+p {
+	line-height: $scale;
+  max-width: 36em;
+  margin-top: 0;
+  margin-bottom: $base;
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input,
+button {
+	font-size: inherit;
+	color: inherit;
+	font-family: inherit;
+	text-transform: inherit;
+  background: transparent;
+  border: none;
+	padding: $base/$scale $base;
+}
+
+button {
+	cursor: pointer;
+  font-family: $display;
+  font-weight: bold;
+  color: $pistachio;
+  background: $moss;
+  border-radius: $gap;
+
+	&:hover,
+	&:focus {
+    color: $moss;
+		background: $banana;
+	}
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
