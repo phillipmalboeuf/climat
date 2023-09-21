@@ -4,9 +4,15 @@ import type { Entry } from 'contentful'
 import type { PageServerLoad } from './$types'
 
 export const load: PageServerLoad = (async ({ locals, url, params }) => {
-  const [page] = await Promise.all([
-    contentful.getEntry<TypePageSkeleton>('52FW7sse1jMECdlIu9wzuf', { include: 2, locale: 'fr-CA' }),
+  const [[page]] = await Promise.all([
+    (await contentful.getEntries<TypePageSkeleton>({ 
+      content_type: "page",
+      "fields.id": params.page,
+      include: 2,
+      locale: 'fr-CA'
+    })).items,
   ])
+  
 
   return {
     page

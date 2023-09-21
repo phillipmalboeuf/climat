@@ -1,5 +1,13 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
 
+export interface TypeBannerFields {
+    id?: EntryFieldTypes.Symbol;
+    list?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+}
+
+export type TypeBannerSkeleton = EntrySkeletonType<TypeBannerFields, "banner">;
+export type TypeBanner<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeBannerSkeleton, Modifiers, Locales>;
+
 export interface TypeLienFields {
     titre?: EntryFieldTypes.Symbol;
     lien?: EntryFieldTypes.Symbol;
@@ -9,6 +17,16 @@ export interface TypeLienFields {
 
 export type TypeLienSkeleton = EntrySkeletonType<TypeLienFields, "lien">;
 export type TypeLien<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeLienSkeleton, Modifiers, Locales>;
+
+export interface TypeListFields {
+    titre?: EntryFieldTypes.Symbol;
+    id?: EntryFieldTypes.Symbol;
+    type?: EntryFieldTypes.Symbol<"Icônes" | "Numéros" | "Slider">;
+    list?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeTextSkeleton>>;
+}
+
+export type TypeListSkeleton = EntrySkeletonType<TypeListFields, "list">;
+export type TypeList<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeListSkeleton, Modifiers, Locales>;
 
 export interface TypeNavigationFields {
     id: EntryFieldTypes.Symbol;
@@ -22,7 +40,7 @@ export interface TypePageFields {
     titre?: EntryFieldTypes.Symbol;
     id: EntryFieldTypes.Symbol;
     description?: EntryFieldTypes.Text;
-    contenu?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeTextSkeleton>>;
+    contenu?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeBannerSkeleton | TypeListSkeleton | TypeTextSkeleton>>;
 }
 
 export type TypePageSkeleton = EntrySkeletonType<TypePageFields, "page">;
@@ -34,7 +52,7 @@ export interface TypeTextFields {
     id?: EntryFieldTypes.Symbol;
     corps?: EntryFieldTypes.RichText;
     media?: EntryFieldTypes.AssetLink;
-    lien?: EntryFieldTypes.EntryLink<EntrySkeletonType>;
+    lien?: EntryFieldTypes.EntryLink<TypeLienSkeleton>;
     bordures?: EntryFieldTypes.Boolean;
 }
 

@@ -20,7 +20,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $display;
   font-weight: bold;
-  max-width: 36em;
+  max-width: 20em;
   margin-top: 0;
   margin-bottom: $base;
 }
@@ -46,6 +46,7 @@ h3 {
 
 h4 {
   font-size: $base * $scale;
+  font-family: $alt;
 }
 
 h5 {
@@ -75,7 +76,8 @@ a:hover {
 }
 
 input,
-button {
+button,
+.button {
 	font-size: inherit;
 	color: inherit;
 	font-family: inherit;
@@ -85,7 +87,8 @@ button {
 	padding: $base/$scale $base;
 }
 
-button {
+button,
+.button {
 	cursor: pointer;
   font-family: $display;
   font-weight: bold;
@@ -97,9 +100,14 @@ button {
 	&:focus {
     color: $moss;
 		background: $banana;
+    text-decoration: none;
 	}
 }
 
 button:focus:not(:focus-visible) {
 	outline: none;
+}
+
+[hidden] {
+  display: none;
 }
