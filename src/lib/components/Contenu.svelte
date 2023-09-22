@@ -4,6 +4,7 @@
   import Text from './Text.svelte'
   import Banner from './Banner.svelte'
   import List from './List.svelte'
+  import Dashboard from './Dashboard.svelte'
 
   export let contenu: Entry<any, "WITHOUT_UNRESOLVABLE_LINKS">[]
 </script>
@@ -15,6 +16,8 @@
 <Banner {section} />
 {:else if section.sys.contentType.sys.id === 'list'}
 <List {section} />
+{:else if section.sys.contentType.sys.id === 'dashboard'}
+<Dashboard {section} />
 {/if}
 {/each}
 

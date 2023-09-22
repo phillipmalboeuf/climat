@@ -2,11 +2,21 @@
   import type { Entry } from 'contentful'
   import type { TypeListSkeleton } from '$lib/clients/content_types'
   import Text from './Text.svelte'
+    import Slider from './Slider.svelte';
 
   export let section: Entry<TypeListSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
 </script>
 
 <section id={section.fields.id} class={section.fields.type}>
+  {#if section.fields.type === 'Slider'}
+  <Slider dots={section.fields.list.length} arrows>
+    {#each section.fields.list as item}
+    <div class="slider__slide">
+      <Text section={item} small left />
+    </div>
+    {/each}
+  </Slider>
+  {:else}
   <ol>
     {#each section.fields.list as item}
     <li>
@@ -14,6 +24,7 @@
     </li>
     {/each}
   </ol>
+  {/if}
 </section>
 
 <style lang="scss">

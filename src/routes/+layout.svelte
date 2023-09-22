@@ -21,6 +21,6 @@
 
 <style lang="scss">
   main {
-    padding: $base * $scale;
+    padding: 0 ($base * $scale) ($base * $scale);
   }
 </style>

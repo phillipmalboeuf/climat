@@ -71,7 +71,7 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
+a[href]:hover {
 	text-decoration: underline;
 }
 
@@ -102,6 +102,15 @@ button,
 		background: $banana;
     text-decoration: none;
 	}
+
+  &.button--none {
+    font-family: inherit;
+    padding: 0;
+    color: currentColor;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
 }
 
 button:focus:not(:focus-visible) {
@@ -110,4 +119,29 @@ button:focus:not(:focus-visible) {
 
 [hidden] {
   display: none;
+}
+
+blockquote {
+  position: relative;
+  padding: 0 ($base * $scale * 2);
+
+  &:before,
+  &:after {
+    content: "”";
+    font-family: $alt;
+    font-size: ($base * $scale * 1.5);
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &:before {
+    content: "“";
+    position: absolute;
+    bottom: auto;
+    right: auto;
+    top: -0.5em;
+    left: 0;
+  }
 }

@@ -8,6 +8,30 @@ export interface TypeBannerFields {
 export type TypeBannerSkeleton = EntrySkeletonType<TypeBannerFields, "banner">;
 export type TypeBanner<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeBannerSkeleton, Modifiers, Locales>;
 
+export interface TypeDashboardFields {
+    id?: EntryFieldTypes.Symbol;
+    items?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeItemDashboardSkeleton>>;
+}
+
+export type TypeDashboardSkeleton = EntrySkeletonType<TypeDashboardFields, "dashboard">;
+export type TypeDashboard<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeDashboardSkeleton, Modifiers, Locales>;
+
+export interface TypeItemDashboardFields {
+    text?: EntryFieldTypes.Symbol;
+    lien?: EntryFieldTypes.Symbol;
+    taille?: EntryFieldTypes.Symbol<"large" | "medium" | "small">;
+    couleur?: EntryFieldTypes.Symbol<"banana" | "black" | "moss" | "pistachio" | "sage" | "turquoise">;
+    media?: EntryFieldTypes.AssetLink;
+    coins?: EntryFieldTypes.Array<EntryFieldTypes.Symbol<"bottom_left" | "bottom_right" | "top_left" | "top_right">>;
+    colStart?: EntryFieldTypes.Integer;
+    colEnd?: EntryFieldTypes.Integer;
+    rowStart?: EntryFieldTypes.Integer;
+    rowEnd?: EntryFieldTypes.Integer;
+}
+
+export type TypeItemDashboardSkeleton = EntrySkeletonType<TypeItemDashboardFields, "itemDashboard">;
+export type TypeItemDashboard<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeItemDashboardSkeleton, Modifiers, Locales>;
+
 export interface TypeLienFields {
     titre?: EntryFieldTypes.Symbol;
     lien?: EntryFieldTypes.Symbol;
@@ -23,6 +47,7 @@ export interface TypeListFields {
     id?: EntryFieldTypes.Symbol;
     type?: EntryFieldTypes.Symbol<"Icônes" | "Numéros" | "Slider">;
     list?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeTextSkeleton>>;
+    lien?: EntryFieldTypes.EntryLink<TypeLienSkeleton>;
 }
 
 export type TypeListSkeleton = EntrySkeletonType<TypeListFields, "list">;
@@ -40,7 +65,7 @@ export interface TypePageFields {
     titre?: EntryFieldTypes.Symbol;
     id: EntryFieldTypes.Symbol;
     description?: EntryFieldTypes.Text;
-    contenu?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeBannerSkeleton | TypeListSkeleton | TypeTextSkeleton>>;
+    contenu?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeBannerSkeleton | TypeDashboardSkeleton | TypeListSkeleton | TypeTextSkeleton>>;
 }
 
 export type TypePageSkeleton = EntrySkeletonType<TypePageFields, "page">;

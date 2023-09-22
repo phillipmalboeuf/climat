@@ -7,9 +7,10 @@
 
   export let section: Entry<TypeTextSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
   export let small = false
+  export let left = false
 </script>
 
-<section id={section.fields.id} class:borders={section.fields.bordures} class:small>
+<section id={section.fields.id} class:borders={section.fields.bordures} class:small class:left>
   <main>
     {#if section.fields.sousTitre}<h6>{section.fields.sousTitre}</h6>{/if}
     {#if section.fields.titre}{#if small}<h4>{section.fields.titre}</h4>{:else}<h2>{section.fields.titre}</h2>{/if}{/if}
@@ -35,6 +36,7 @@
 
     display: flex;
     align-items: center;
+    gap: ($base * $scale * 2);
 
     main,
     figure {
@@ -45,6 +47,26 @@
       margin-top: ($base * $scale * 2);
     }
 
+    &.left {
+      figure {
+        order: -1;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column-reverse;
+
+        h6, h4 {
+          font-family: $text;
+          align-self: flex-end;
+        }
+
+        h4 {
+          margin-bottom: 0;
+        }
+      }
+    }
+
     &.borders {
       border: 1px solid;
       border-radius: $base;
@@ -52,7 +74,7 @@
       figure {
         border-left: 1px solid;
         margin: ($base * $scale * -1);
-        padding: ($base * $scale / 2);
+        padding: ($base * $scale * 0.5);
 
         :global(img) {
           border-top-right-radius: $base;
