@@ -5,6 +5,7 @@
   import Banner from './Banner.svelte'
   import List from './List.svelte'
   import Dashboard from './Dashboard.svelte'
+  import Form from './Form.svelte'
 
   export let contenu: Entry<any, "WITHOUT_UNRESOLVABLE_LINKS">[]
 </script>
@@ -18,6 +19,8 @@
 <List {section} />
 {:else if section.sys.contentType.sys.id === 'dashboard'}
 <Dashboard {section} />
+{:else if section.sys.contentType.sys.id === 'formulaire'}
+<Form {section} />
 {/if}
 {/each}
 

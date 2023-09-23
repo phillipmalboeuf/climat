@@ -32,6 +32,28 @@ export interface TypeEventFields {
 export type TypeEventSkeleton = EntrySkeletonType<TypeEventFields, "event">;
 export type TypeEvent<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeEventSkeleton, Modifiers, Locales>;
 
+export interface TypeFormulaireFields {
+    titre?: EntryFieldTypes.Symbol;
+    id?: EntryFieldTypes.Symbol;
+    cta?: EntryFieldTypes.Symbol;
+    lien?: EntryFieldTypes.Symbol;
+    inputs?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeInputSkeleton>>;
+}
+
+export type TypeFormulaireSkeleton = EntrySkeletonType<TypeFormulaireFields, "formulaire">;
+export type TypeFormulaire<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeFormulaireSkeleton, Modifiers, Locales>;
+
+export interface TypeInputFields {
+    label?: EntryFieldTypes.Symbol;
+    id: EntryFieldTypes.Symbol;
+    type?: EntryFieldTypes.Symbol<"Checkbox" | "Options" | "Radio" | "Text" | "Textarea">;
+    options?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+    description?: EntryFieldTypes.RichText;
+}
+
+export type TypeInputSkeleton = EntrySkeletonType<TypeInputFields, "input">;
+export type TypeInput<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeInputSkeleton, Modifiers, Locales>;
+
 export interface TypeItemDashboardFields {
     text?: EntryFieldTypes.Symbol;
     lien?: EntryFieldTypes.Symbol;
@@ -81,7 +103,7 @@ export interface TypePageFields {
     titre?: EntryFieldTypes.Symbol;
     id: EntryFieldTypes.Symbol;
     description?: EntryFieldTypes.Text;
-    contenu?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeBannerSkeleton | TypeDashboardSkeleton | TypeListSkeleton | TypeTextSkeleton>>;
+    contenu?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeBannerSkeleton | TypeDashboardSkeleton | TypeFormulaireSkeleton | TypeListSkeleton | TypeTextSkeleton>>;
 }
 
 export type TypePageSkeleton = EntrySkeletonType<TypePageFields, "page">;

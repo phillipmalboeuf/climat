@@ -63,7 +63,7 @@
     margin: (-$gap);
 
     &:last-child {
-      background-color: fade-out(#81A98F, 0.7);
+      background-color: $faded_sage;
     }
   }
 
