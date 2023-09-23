@@ -1,0 +1,106 @@
+<script lang="ts">
+  import Contenu from '$lib/components/Contenu.svelte'
+	
+	import type { PageData } from './$types'
+  export let data: PageData
+</script>
+
+<svelte:head>
+	<title>{data.page.fields.titre}</title>
+	<meta name="description" content={data.page.fields.description} />
+</svelte:head>
+
+<main>
+	<h1 hidden>{data.page.fields.titre}</h1>
+	<Contenu contenu={data.page.fields.contenu} />
+</main>
+
+<aside>
+  <h4>À venir</h4>
+
+  <ol>
+    {#each data.upcoming as event}
+    <li>
+      <a href="/activités/{event.fields.id}">
+        <date>{event.fields.date}</date>
+        <div>
+          <h3>{event.fields.titre}</h3>
+          <p>{event.fields.excerpt}</p>
+          {event.fields.tags.join(' ')}
+        </div>
+
+        <svg width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 0.00153056L14.8277 2.96255L27.3836 14.6997L0.00114253 14.7018L0.00146897 18.9015L27.384 18.8993L14.8299 30.6384L18.0026 33.5989L36.0013 16.7988L18 0.00153056Z" fill="currentColor"/></svg>
+      </a>
+    </li>
+    {/each}
+  </ol>
+</aside>
+<aside>
+  <h4>Activités passées</h4>
+
+  <ol>
+    {#each data.passed as event}
+    <li>
+      <a href="/activités/{event.fields.id}">
+        <date>{event.fields.date}</date>
+        <div>
+          <h3>{event.fields.titre}</h3>
+          <p>{event.fields.excerpt}</p>
+          {event.fields.tags.join(' ')}
+        </div>
+
+        <svg width="37" height="34" viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 0.00153056L14.8277 2.96255L27.3836 14.6997L0.00114253 14.7018L0.00146897 18.9015L27.384 18.8993L14.8299 30.6384L18.0026 33.5989L36.0013 16.7988L18 0.00153056Z" fill="currentColor"/></svg>
+      </a>
+    </li>
+    {/each}
+  </ol>
+</aside>
+
+
+<style lang="scss">
+  aside {
+    padding: $gap * 2;
+    margin: (-$gap);
+
+    &:last-child {
+      background-color: fade-out(#81A98F, 0.7);
+    }
+  }
+
+  h4 {
+    font-family: $display;
+    text-transform: uppercase;
+    margin-bottom: $gap * 2;
+  }
+
+  ol {
+    list-style: none;
+    padding-left: 0;
+    border-top: 1px solid;
+
+    li {
+      border-bottom: 1px solid;
+
+      a {
+        display: flex;
+        gap: $gap * 3;
+        padding: $gap 0;
+
+        date {
+          width: 20%;
+        }
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          background-color: $turquoise;
+          color: $black;
+        }
+
+        div {
+          flex: 1;
+        }
+      }
+    }
+  }
+</style>

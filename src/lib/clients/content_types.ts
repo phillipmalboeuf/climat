@@ -16,6 +16,22 @@ export interface TypeDashboardFields {
 export type TypeDashboardSkeleton = EntrySkeletonType<TypeDashboardFields, "dashboard">;
 export type TypeDashboard<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeDashboardSkeleton, Modifiers, Locales>;
 
+export interface TypeEventFields {
+    titre?: EntryFieldTypes.Symbol;
+    id: EntryFieldTypes.Symbol;
+    date?: EntryFieldTypes.Date;
+    archive?: EntryFieldTypes.Boolean;
+    tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+    excerpt?: EntryFieldTypes.Text;
+    media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
+    lien?: EntryFieldTypes.Symbol;
+    cta?: EntryFieldTypes.Symbol;
+    description?: EntryFieldTypes.RichText;
+}
+
+export type TypeEventSkeleton = EntrySkeletonType<TypeEventFields, "event">;
+export type TypeEvent<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeEventSkeleton, Modifiers, Locales>;
+
 export interface TypeItemDashboardFields {
     text?: EntryFieldTypes.Symbol;
     lien?: EntryFieldTypes.Symbol;

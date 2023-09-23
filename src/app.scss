@@ -111,6 +111,11 @@ button,
     border: none;
     border-radius: 0;
   }
+
+  &.button--alt {
+    color: $moss;
+		background: $banana;
+  }
 }
 
 button:focus:not(:focus-visible) {
@@ -119,6 +124,20 @@ button:focus:not(:focus-visible) {
 
 [hidden] {
   display: none;
+}
+
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: $base;
+  padding-left: $gap;
+
+  li {
+
+    > p:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 blockquote {
