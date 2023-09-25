@@ -4,7 +4,7 @@
 
   import type { TypeNavigationSkeleton } from '$lib/clients/content_types'
   import type { Entry } from 'contentful'
-    import Links from './Links.svelte';
+  import Links from './Links.svelte'
 
   export let navigation: Entry<TypeNavigationSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
 </script>
@@ -27,12 +27,15 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: $gap;
+		padding: ($base*0.5) $base;
+		margin-bottom: $base;
 
 		position: sticky;
 		top: 0;
 		z-index: 10;
 		background-color: $pistachio;
+		border-bottom: 1px solid;
+		border-radius: $base;
 	}
 
 	.corner {

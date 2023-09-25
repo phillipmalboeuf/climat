@@ -1,5 +1,6 @@
 <script lang="ts">
   import Contenu from '$lib/components/Contenu.svelte'
+  import { DateTime } from 'luxon'
 	
 	import type { PageData } from './$types'
   export let data: PageData
@@ -22,7 +23,7 @@
     {#each data.upcoming as event}
     <li>
       <a href="/activités/{event.fields.id}">
-        <date>{event.fields.date}</date>
+        <date>{DateTime.fromISO(event.fields.date).setLocale('fr-CA').toFormat('dd MMM').replace(' ', '\n')}</date>
         <div>
           <h3>{event.fields.titre}</h3>
           <p>{event.fields.excerpt}</p>
@@ -67,10 +68,21 @@
     }
   }
 
+  h3 {
+    font-weight: normal;
+  }
+
   h4 {
     font-family: $display;
     text-transform: uppercase;
     margin-bottom: $gap * 2;
+  }
+
+  date {
+    font-family: $display;
+    font-size: $base * $scale * 1;
+    font-weight: bold;
+    white-space: pre-line;
   }
 
   ol {
@@ -87,7 +99,7 @@
         padding: $gap 0;
 
         date {
-          width: 20%;
+          width: 15%;
         }
 
         &:hover,

@@ -1,6 +1,7 @@
 <script lang="ts">
   import Contenu from '$lib/components/Contenu.svelte'
   import Document from '$lib/components/document/Document.svelte'
+  import { DateTime } from 'luxon'
 	
 	import type { PageData } from './$types'
   export let data: PageData
@@ -13,7 +14,7 @@
 
 <main>
   <nav><a href="/activités"><u>Retour aux activités</u></a></nav>
-  <date>{data.event.fields.date}</date>
+  <date>{DateTime.fromISO(data.event.fields.date).setLocale('fr-CA').toRelative()}</date>
 	<h1>{data.event.fields.titre}</h1>
   <Document body={data.event.fields.description} />
   <br>
@@ -24,10 +25,18 @@
 
 <style lang="scss">
   main {
-    margin-top: $gap;
+    // margin-top: $gap;
+    padding: $gap;
   }
 
   nav {
     margin: $gap 0;
+  }
+
+  date {
+    display: block;
+    margin-bottom: $base;
+    text-transform: capitalize;
+    font-weight: bold;
   }
 </style>
