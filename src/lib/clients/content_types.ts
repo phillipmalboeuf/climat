@@ -104,10 +104,21 @@ export interface TypePageFields {
     id: EntryFieldTypes.Symbol;
     description?: EntryFieldTypes.Text;
     contenu?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeBannerSkeleton | TypeDashboardSkeleton | TypeFormulaireSkeleton | TypeListSkeleton | TypeTextSkeleton>>;
+    sidebar?: EntryFieldTypes.EntryLink<TypeSidebarSkeleton>;
 }
 
 export type TypePageSkeleton = EntrySkeletonType<TypePageFields, "page">;
 export type TypePage<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypePageSkeleton, Modifiers, Locales>;
+
+export interface TypeSidebarFields {
+    id?: EntryFieldTypes.Symbol;
+    principal?: EntryFieldTypes.RichText;
+    liens?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeLienSkeleton>>;
+    secondaire?: EntryFieldTypes.RichText;
+}
+
+export type TypeSidebarSkeleton = EntrySkeletonType<TypeSidebarFields, "sidebar">;
+export type TypeSidebar<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeSidebarSkeleton, Modifiers, Locales>;
 
 export interface TypeTextFields {
     titre?: EntryFieldTypes.Symbol;

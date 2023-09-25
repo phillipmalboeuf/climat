@@ -80,6 +80,10 @@ a[href]:hover {
 	text-decoration: underline;
 }
 
+a[id] {
+  scroll-margin-top: $gap * 5;
+}
+
 input,
 button,
 .button,
@@ -143,6 +147,13 @@ select {
 
 [hidden] {
   display: none;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: currentColor;
+  margin: ($base * $scale) 0;
 }
 
 ol,
