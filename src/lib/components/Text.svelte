@@ -8,12 +8,13 @@
   export let section: Entry<TypeTextSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
   export let small = false
   export let left = false
+  export let noTitle = false
 </script>
 
 <section id={section.fields.id} class:borders={section.fields.bordures} class:small class:left>
   <main>
     {#if section.fields.sousTitre}<h6>{section.fields.sousTitre}</h6>{/if}
-    {#if section.fields.titre}{#if small}<h4>{section.fields.titre}</h4>{:else}<h2>{section.fields.titre}</h2>{/if}{/if}
+    {#if !noTitle && section.fields.titre}{#if small}<h4>{section.fields.titre}</h4>{:else}<h2>{section.fields.titre}</h2>{/if}{/if}
     {#if section.fields.corps}<Document body={section.fields.corps} />{/if}
 
     {#if section.fields.lien}

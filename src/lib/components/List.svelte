@@ -16,6 +16,13 @@
     </div>
     {/each}
   </Slider>
+  {:else if section.fields.type === 'Accordéon'}
+  {#each section.fields.list as item}
+  <details>
+    <summary><h2>{item.fields.titre}</h2></summary>
+    <Text section={item} small noTitle />
+  </details>
+  {/each}
   {:else}
   <ol>
     {#each section.fields.list as item}
@@ -69,6 +76,52 @@
 
           &:last-child {
             border-right: none;
+          }
+        }
+      }
+    }
+
+    &.Accordéon {
+      details {
+        max-width: 42em;
+        
+        summary {
+          cursor: pointer;
+          border-top: 1px solid;
+
+          &:empty {
+            display: none;
+          }
+
+          &::-webkit-details-marker {
+            display: none;
+            content: "";
+          }
+
+          &::marker {
+            display: none;
+            content: "";
+          }
+
+          h2 {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5em 0;
+            @media (max-width: 888px) { font-size: 30px; }
+          }
+
+          h2:after {
+            content: '+';
+          }
+        }
+
+        &[open] {
+          > summary {
+            margin-bottom: 0.5em;
+
+            h2:after {
+              content: '–';
+            }
           }
         }
       }

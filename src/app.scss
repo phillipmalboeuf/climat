@@ -68,6 +68,7 @@ p {
   max-width: 36em;
   margin-top: 0;
   margin-bottom: $base;
+  white-space: pre-line;
 }
 
 a {
@@ -180,5 +181,32 @@ blockquote {
     right: auto;
     top: -0.5em;
     left: 0;
+  }
+}
+
+table {
+
+  tr {
+
+    th {
+      font-weight: inherit;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+    }
+
+    td,
+    th {
+      text-align: left;
+      padding: $base;
+      vertical-align: top;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      > p:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
