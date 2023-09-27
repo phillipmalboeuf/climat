@@ -1,5 +1,6 @@
 <script lang="ts">
   import Contenu from '$lib/components/Contenu.svelte'
+  import PageHeader from '$lib/components/PageHeader.svelte'
   import { DateTime } from 'luxon'
 	
 	import type { PageData } from './$types'
@@ -10,6 +11,8 @@
 	<title>{data.page.fields.titre}</title>
 	<meta name="description" content={data.page.fields.description} />
 </svelte:head>
+
+<PageHeader page={data.page} />
 
 <main>
 	<h1 hidden>{data.page.fields.titre}</h1>

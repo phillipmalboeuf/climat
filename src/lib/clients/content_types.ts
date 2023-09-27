@@ -103,6 +103,8 @@ export interface TypePageFields {
     titre?: EntryFieldTypes.Symbol;
     id: EntryFieldTypes.Symbol;
     description?: EntryFieldTypes.Text;
+    media?: EntryFieldTypes.AssetLink;
+    bigHeader?: EntryFieldTypes.Boolean;
     contenu?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeBannerSkeleton | TypeDashboardSkeleton | TypeFormulaireSkeleton | TypeListSkeleton | TypeTextSkeleton>>;
     sidebar?: EntryFieldTypes.EntryLink<TypeSidebarSkeleton>;
 }

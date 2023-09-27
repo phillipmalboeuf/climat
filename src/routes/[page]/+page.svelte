@@ -1,6 +1,7 @@
 <script lang="ts">
   import Contenu from '$lib/components/Contenu.svelte'
   import Links from '$lib/components/Links.svelte'
+    import PageHeader from '$lib/components/PageHeader.svelte';
 	import Document from '$lib/components/document/Document.svelte'
 	
 	import type { PageData } from './$types'
@@ -12,9 +13,10 @@
 	<meta name="description" content={data.page.fields.description} />
 </svelte:head>
 
+<PageHeader page={data.page} />
+
 <div class:sidebar={!!data.page.fields.sidebar}>
 	<main>
-		<h1 hidden>{data.page.fields.titre}</h1>
 		<Contenu contenu={data.page.fields.contenu} />
 	</main>
 
@@ -63,6 +65,7 @@
 		right: 0;
 		// width: 100%;
 		// max-width: 36em;
+		margin-top: $gap * 3;
 		padding: $gap * 2;
 		background-color: $banana;
 		border-radius: $gap;

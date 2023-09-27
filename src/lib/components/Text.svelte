@@ -48,6 +48,13 @@
       margin-top: ($base * $scale * 2);
     }
 
+    figure {
+			:global(img) {
+				border-top-right-radius: $base;
+				border-bottom-left-radius: $base;
+			}
+		}
+
     &.left {
       figure {
         order: -1;
@@ -80,6 +87,7 @@
         :global(img) {
           border-top-right-radius: $base;
           border-bottom-right-radius: $base;
+          border-bottom-left-radius: 0;
         }
       }
     }

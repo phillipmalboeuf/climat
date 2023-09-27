@@ -1,6 +1,7 @@
 <script lang="ts">
   import Contenu from '$lib/components/Contenu.svelte'
   import Document from '$lib/components/document/Document.svelte'
+
   import { DateTime } from 'luxon'
 	
 	import type { PageData } from './$types'
