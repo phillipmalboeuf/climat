@@ -107,7 +107,6 @@
             display: flex;
             justify-content: space-between;
             margin: 0.5em 0;
-            @media (max-width: 888px) { font-size: 30px; }
           }
 
           h2:after {

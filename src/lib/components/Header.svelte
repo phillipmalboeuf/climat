@@ -5,21 +5,24 @@
   import type { TypeNavigationSkeleton } from '$lib/clients/content_types'
   import type { Entry } from 'contentful'
   import Links from './Links.svelte'
+  import Menu from './Menu.svelte'
 
   export let navigation: Entry<TypeNavigationSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
 </script>
 
 <header>
-	<nav class="corner">
+	<nav>
 		<a href="/">
 			<Logo />
 		</a>
 	</nav>
 
 
-	<nav class="corner">
+	<nav class="links">
 		<Links liens={navigation.fields.liens} />
 	</nav>
+
+	<Menu liens={navigation.fields.liens} />
 </header>
 
 <style lang="scss">
@@ -36,11 +39,12 @@
 		background-color: $pistachio;
 		border-bottom: 1px solid;
 		border-radius: $base;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
 	}
 
-	.corner {
-		/* width: 3em;
-		height: 3em; */
+	.links {
+		@media (max-width: $mobile) { display: none; }
 	}
 
 	nav {

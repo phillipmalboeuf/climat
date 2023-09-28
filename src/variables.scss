@@ -3,6 +3,9 @@ $base: 18px;
 $scale: 1.333333;
 $gap: $base * $scale;
 
+// BREAKPOINTS
+$mobile: 888px;
+
 // FONTS
 $display: 'Red Hat Display', sans-serif;
 $text: 'Red Hat Text', sans-serif;
