@@ -38,6 +38,11 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, 1fr);
 
+    @media (max-width: $mobile) {
+      column-gap: $mobile_base / 2;
+      row-gap: $mobile_base / 2;
+    }
+
     a {
       display: flex;
       align-items: center;
@@ -75,10 +80,18 @@
         font-size: $base * $scale;
         font-family: $display;
         line-height: 1;
+
+        @media (max-width: $mobile) {
+          font-size: $mobile_base * $mobile_scale;
+        }
       }
 
       &.large {
         font-size: $base * $scale * 3;
+
+        @media (max-width: $mobile) {
+          font-size: $mobile_base * $mobile_scale * 2;
+        }
       }
 
       &.black {
@@ -117,6 +130,19 @@
           height: 100%;
           object-fit: cover;
         }
+      }
+    }
+
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr;
+
+      a {
+        grid-column-start: 1 !important;
+        grid-column-end: 2 !important;
+        grid-row-start: auto !important;
+        grid-row-end: auto !important;
+
+        padding: $mobile_base * $mobile_scale;
       }
     }
   }

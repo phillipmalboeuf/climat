@@ -8,6 +8,7 @@
 </script>
 
 <section id={section.fields.id} class={section.fields.type}>
+  {#if section.fields.titre}<h2>{section.fields.titre}</h2>{/if}
   {#if section.fields.type === 'Slider'}
   <Slider dots={section.fields.list.length} arrows>
     {#each section.fields.list as item}
@@ -39,6 +40,11 @@
     margin: ($base * $scale * 3) 0;
     padding: ($base * $scale * 1);
 
+    @media (max-width: $mobile) {
+      margin: ($mobile_base * $mobile_scale * 1) 0;
+      padding: ($mobile_base * $mobile_scale * 1);
+    }
+
     ol {
       list-style: none;
       padding: 0;
@@ -48,7 +54,12 @@
 
     &.Numéros {
       ol {
+        margin-top: ($base * $scale * 3);
         counter-reset: counter;
+
+        @media (max-width: $mobile) {
+          flex-direction: column;
+        }
 
         li {
           counter-increment: counter;
@@ -57,6 +68,12 @@
           border-right: 1px solid;
           padding-left: $base * $scale * 3;
           padding-right: $base * $scale * 1;
+
+          @media (max-width: $mobile) {
+            padding: 0;
+            border-right: none;
+            border-bottom: 1px solid;
+          }
 
           &:before {
             content: counter(counter);
@@ -68,6 +85,11 @@
             font-family: $alt_display;
             font-weight: bold;
             color: $black;
+
+            @media (max-width: $mobile) {
+              font-size: $mobile_base * $mobile_scale * 2;
+              left: $mobile_base * $mobile_scale * -1.5;
+            }
           }
 
           :global(section) {

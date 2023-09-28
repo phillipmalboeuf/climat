@@ -35,9 +35,18 @@
     margin: ($base * $scale * 3) 0;
     padding: ($base * $scale * 1);
 
+    @media (max-width: $mobile) { 
+      margin: ($mobile_gap * 2) 0;
+      padding: $mobile_gap;
+    }
+
     display: flex;
     align-items: center;
     gap: ($base * $scale * 2);
+
+    @media (max-width: $mobile) { 
+      flex-direction: column;
+    }
 
     main,
     figure {
@@ -84,10 +93,21 @@
         margin: ($base * $scale * -1);
         padding: ($base * $scale * 0.5);
 
+        @media (max-width: $mobile) {
+          border-left: none;
+          border-top: 1px solid;
+        }
+
         :global(img) {
           border-top-right-radius: $base;
           border-bottom-right-radius: $base;
           border-bottom-left-radius: 0;
+
+          @media (max-width: $mobile) { 
+            border-top-right-radius: 0;
+            border-bottom-right-radius: $base;
+            border-bottom-left-radius: $base;
+          }
         }
       }
     }

@@ -8,7 +8,7 @@
 
   export let liens: Entry<TypeLienSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">[]
 
-  let visible = true
+  let visible = false
 </script>
 
 <div>

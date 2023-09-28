@@ -23,5 +23,9 @@
   main {
     padding: 0 ($base * $scale) ($base * $scale);
     min-height: 66vh;
+
+    @media (max-width: $mobile) {
+      padding: 0 ($mobile_base) ($mobile_base * $mobile_scale);
+    }
   }
 </style>

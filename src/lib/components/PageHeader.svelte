@@ -20,9 +20,11 @@
 <style lang="scss">
   header {
 		padding: $gap;
+		@media (max-width: $mobile) { padding: $mobile_gap; }
 
 		figure {
 			margin-top: $gap * 3;
+			@media (max-width: $mobile) { margin-top: $mobile_gap * 2; }
 
 			:global(img) {
 				border-top-right-radius: $gap;

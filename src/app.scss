@@ -15,6 +15,11 @@ body {
   line-height: $scale;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: $mobile) {
+    font-size: $mobile_base;
+    line-height: $mobile_scale;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,17 +36,22 @@ h1 {
 
   &.h1--huge {
     font-size: $base * $scale * 5;
+    @media (max-width: $mobile) { font-size: $mobile_base * $mobile_scale * 2; }
   }
 }
 
 h2 {
 	font-size: $base * $scale * 2;
   line-height: 1;
+
+  @media (max-width: $mobile) { font-size: $mobile_base * $mobile_scale * 1.5; }
 }
 
 h3 {
   font-size: $base * $scale * 1.25;
   font-family: $alt;
+
+  @media (max-width: $mobile) { font-size: $mobile_base * $mobile_scale; }
 }
 
 h4, h5, h6 {
@@ -51,20 +61,24 @@ h4, h5, h6 {
 h4 {
   font-size: $base * $scale;
   font-family: $alt;
+
+  @media (max-width: $mobile) { font-size: $mobile_base * $mobile_scale; }
 }
 
 h5 {
   font-size: $base * $scale;
+  @media (max-width: $mobile) { font-size: $mobile_base * $mobile_scale; }
 }
 
 h6 {
   font-size: $base / $scale;
   font-family: $alt;
   text-transform: uppercase;
+
+  @media (max-width: $mobile) { font-size: $mobile_base / $mobile_scale; }
 }
 
 p {
-	line-height: $scale;
   max-width: 36em;
   margin-top: 0;
   margin-bottom: $base;

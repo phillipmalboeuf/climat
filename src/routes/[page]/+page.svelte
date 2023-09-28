@@ -49,6 +49,10 @@
 			display: flex;
 			align-items: flex-start;
 
+			@media (max-width: $mobile) {
+				flex-direction: column-reverse;
+			}
+
 			main {
 				flex: 3;
 			}
@@ -70,6 +74,12 @@
 		background-color: $banana;
 		border-radius: $gap;
 		border-top-left-radius: 0;
+
+		@media (max-width: $mobile) {
+			position: static;
+			padding: $mobile_gap;
+			margin-top: $mobile_gap;
+		}
 
 		nav {
 			display: flex;

@@ -32,6 +32,11 @@
 
     color: $banana;
 		background-color: $black;
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			padding: $mobile_gap;
+		}
 	}
 
 	nav {
