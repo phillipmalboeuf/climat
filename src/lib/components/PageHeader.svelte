@@ -20,7 +20,7 @@
 <style lang="scss">
   header {
 		padding: $gap;
-		@media (max-width: $mobile) { padding: $mobile_gap; }
+		@media (max-width: $mobile) { padding: $mobile_gap / 2; }
 
 		figure {
 			margin-top: $gap * 3;

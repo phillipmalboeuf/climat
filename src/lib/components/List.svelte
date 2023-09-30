@@ -42,7 +42,7 @@
 
     @media (max-width: $mobile) {
       margin: ($mobile_base * $mobile_scale * 1) 0;
-      padding: ($mobile_base * $mobile_scale * 1);
+      padding: 0;
     }
 
     ol {
@@ -70,7 +70,7 @@
           padding-right: $base * $scale * 1;
 
           @media (max-width: $mobile) {
-            padding: 0;
+            padding: 0 $base * $scale * 1;
             border-right: none;
             border-bottom: 1px solid;
           }
@@ -88,7 +88,8 @@
 
             @media (max-width: $mobile) {
               font-size: $mobile_base * $mobile_scale * 2;
-              left: $mobile_base * $mobile_scale * -1.5;
+              top: $base;
+              left: $mobile_base * $mobile_scale * -0.25;
             }
           }
 

@@ -51,6 +51,11 @@
     margin: (-$gap);
     background-color: $faded_sage;
 
+    @media (max-width: $mobile) { 
+      padding: 10vw 10vw;
+      margin: (-$mobile_gap);
+    }
+
     fieldset {
       border: none;
       padding: 0;
@@ -59,6 +64,11 @@
       column-gap: $base;
       row-gap: $gap * 1.5;
       grid-template-columns: repeat(2, 1fr);
+
+      @media (max-width: $mobile) { 
+        grid-template-columns: repeat(1, 1fr); 
+        row-gap: $mobile_gap * 1;
+      }
       // grid-template-rows: repeat(4, 1fr);
 
       label {
@@ -77,6 +87,10 @@
         &.full {
           grid-column-start: 1;
           grid-column-end: 3;
+
+          @media (max-width: $mobile) { 
+            grid-column-end: 2;
+          }
         }
       }
 
@@ -93,6 +107,10 @@
     h3 {
       font-family: $display;
       margin-bottom: ($base * $scale * 4);
+
+      @media (max-width: $mobile) { 
+        margin-bottom: ($mobile_base * $mobile_scale * 2);
+      }
     }
 
     h6 {
@@ -110,6 +128,7 @@
       background-color: transparent;
 
       display: inline-block;
+      flex-shrink: 0;
       width: 1em;
       height: 1em;
       border: 3px solid $pistachio;
@@ -135,6 +154,10 @@
       grid-column-start: 1;
       grid-column-end: 3;
       margin-top: ($base * $scale * 2);
+
+      @media (max-width: $mobile) { 
+        grid-column-end: 2;
+      }
     }
   }
 </style>

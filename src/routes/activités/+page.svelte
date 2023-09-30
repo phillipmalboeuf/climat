@@ -46,7 +46,7 @@
     {#each data.passed as event}
     <li>
       <a href="/activités/{event.fields.id}">
-        <date>{event.fields.date}</date>
+        <date>{DateTime.fromISO(event.fields.date).setLocale('fr-CA').toFormat('dd MMM').replace(' ', '\n')}</date>
         <div>
           <h3>{event.fields.titre}</h3>
           <p>{event.fields.excerpt}</p>
@@ -65,6 +65,11 @@
   aside {
     padding: $gap * 2;
     margin: (-$gap);
+
+    @media (max-width: $mobile) {
+      padding: $mobile_gap;
+      margin: (-$mobile_gap);
+    }
 
     &:last-child {
       background-color: $faded_sage;
@@ -88,6 +93,12 @@
     white-space: pre-line;
   }
 
+  svg {
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
   ol {
     list-style: none;
     padding-left: 0;
@@ -100,6 +111,11 @@
         display: flex;
         gap: $gap * 3;
         padding: $gap 0;
+
+        @media (max-width: $mobile) {
+          gap: $mobile_gap * 2;
+          padding: $mobile_gap 0;
+        }
 
         date {
           width: 15%;

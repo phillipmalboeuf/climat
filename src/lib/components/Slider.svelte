@@ -71,6 +71,10 @@
       flex: 0 0 100%;  
       min-width: 0;
       padding: 0 15vw;
+
+      @media (max-width: $mobile) {
+        padding: 0;
+      }
     }
   }
 
@@ -81,9 +85,24 @@
       top: 50%;
       left: 0;
 
+      @media (max-width: $mobile) {
+        top: 33%;
+        left: -2%;
+      }
+
+      :global(svg) {
+        @media (max-width: $mobile) {
+          width: $mobile_base;
+        }
+      }
+
       &.arrow--next {
         left: auto;
         right: 0;
+
+        @media (max-width: $mobile) {
+          right: -2%;
+        }
       }
     }
   }

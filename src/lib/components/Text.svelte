@@ -46,6 +46,7 @@
 
     @media (max-width: $mobile) { 
       flex-direction: column;
+      gap: ($mobile_base * $mobile_scale * 2);
     }
 
     main,

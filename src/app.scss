@@ -188,6 +188,10 @@ blockquote {
   position: relative;
   padding: 0 ($base * $scale * 2);
 
+  @media (max-width: $mobile) {
+    padding: 0 ($mobile_base * $mobile_scale * 1);
+  }
+
   &:before,
   &:after {
     content: "”";
