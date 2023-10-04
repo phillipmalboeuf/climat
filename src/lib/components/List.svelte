@@ -52,6 +52,24 @@
       display: flex;
     }
 
+    &.Icônes {
+      ol {
+        margin-top: $gap * 3;
+        display: grid;
+        column-gap: $gap;
+        row-gap: $gap;
+        grid-template-columns: repeat(2, 1fr);
+
+        li {
+
+          :global(section) {
+            margin: 0;
+            border-top: 1px solid;
+          }
+        }
+      }
+    }
+
     &.Numéros {
       ol {
         margin-top: ($base * $scale * 3);
