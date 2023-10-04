@@ -12,6 +12,7 @@
   href={lien.fields.lien}
   on:click
   class:button={lien.fields.emphase}
+  {...!lien.fields.lien && { disabled: true }}
   {...lien.fields.externe && {
     target: "_blank",
     rel: "noopener noreferrer"
