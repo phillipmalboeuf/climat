@@ -53,6 +53,11 @@
       position: relative;
       overflow: hidden;
 
+      &:hover,
+      &:focus {
+        text-decoration: none !important;
+      }
+
       &.top_right {
         border-top-right-radius: $base * $scale;
       }
@@ -117,6 +122,12 @@
       &.banana {
         background-color: $banana;
         color: $black;
+
+        &:hover,
+        &:focus {
+          background-color: $black;
+          color: $banana;
+        }
       }
 
       figure {

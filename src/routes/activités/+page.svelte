@@ -110,11 +110,13 @@
       a {
         display: flex;
         gap: $gap * 3;
-        padding: $gap 0;
+        padding: $gap ($gap * 2);
+        margin: 0 ($gap * -2);
 
         @media (max-width: $mobile) {
           gap: $mobile_gap * 2;
-          padding: $mobile_gap 0;
+          padding: $mobile_gap ($mobile_gap * 2);
+          margin: 0 ($mobile_gap * -2);
         }
 
         date {
