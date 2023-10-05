@@ -86,6 +86,7 @@ export interface TypeListFields {
     type?: EntryFieldTypes.Symbol<"Accordéon" | "Icônes" | "Numéros" | "Slider">;
     list?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeTextSkeleton>>;
     lien?: EntryFieldTypes.EntryLink<TypeLienSkeleton>;
+    media?: EntryFieldTypes.AssetLink;
 }
 
 export type TypeListSkeleton = EntrySkeletonType<TypeListFields, "list">;

@@ -3,6 +3,9 @@
   import type { TypeListSkeleton } from '$lib/clients/content_types'
   import Text from './Text.svelte'
     import Slider from './Slider.svelte';
+    import Links from './Links.svelte';
+    import { linear } from 'svelte/easing';
+    import Media from './Media.svelte';
 
   export let section: Entry<TypeListSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
 </script>
@@ -33,6 +36,14 @@
     {/each}
   </ol>
   {/if}
+
+  {#if section.fields.lien}<nav><Links liens={[section.fields.lien]} /> <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 0L9.47313 2.02687L17.4944 10.0625H0V12.9375H17.4944L9.47313 20.9731L11.5 23L23 11.5L11.5 0Z" fill="#1E675E"/></svg></nav>{/if}
+
+  {#if section.fields.media}
+  <figure>
+    <Media media={section.fields.media} />
+  </figure>
+  {/if}
 </section>
 
 <style lang="scss">
@@ -52,6 +63,33 @@
       display: flex;
     }
 
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: $base;
+
+      :global(a) {
+        font-weight: bold;
+        font-family: $display;
+        // text-decoration: underline;
+      }
+    }
+
+    figure {
+      width: 66%;
+      margin: ($gap * 4) auto 0;
+
+      :global(img) {
+        border-top-right-radius: $gap * 2;
+        border-bottom-left-radius: $gap * 2;
+      }
+
+      @media (max-width: $mobile) {
+        width: 100%;
+        margin: ($mobile_gap * 3) auto;
+      }
+    }
+
     &.Icônes {
       ol {
         margin-top: $gap * 3;
@@ -59,6 +97,10 @@
         column-gap: $gap;
         row-gap: $gap;
         grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: $mobile) {
+          grid-template-columns: repeat(1, 1fr);
+        }
 
         li {
 
