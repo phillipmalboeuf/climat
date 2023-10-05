@@ -72,11 +72,13 @@
 
       main {
         display: flex;
+        flex: 2;
         flex-direction: column-reverse;
 
         h6, h4 {
           font-family: $text;
           align-self: flex-end;
+          text-align: right;
         }
 
         h4 {

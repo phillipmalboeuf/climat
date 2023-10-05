@@ -2,10 +2,9 @@
   import type { Entry } from 'contentful'
   import type { TypeListSkeleton } from '$lib/clients/content_types'
   import Text from './Text.svelte'
-    import Slider from './Slider.svelte';
-    import Links from './Links.svelte';
-    import { linear } from 'svelte/easing';
-    import Media from './Media.svelte';
+  import Slider from './Slider.svelte';
+  import Links from './Links.svelte';
+  import Media from './Media.svelte';
 
   export let section: Entry<TypeListSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
 </script>
