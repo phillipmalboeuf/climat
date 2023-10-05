@@ -7,7 +7,9 @@
   export let node
 </script>
 
-{#if node.nodeType === 'heading-2'}
+{#if node.nodeType === 'heading-1'}
+  <h1>{#each node.content as mark}<Mark mark={mark} />{/each}</h1>
+{:else if node.nodeType === 'heading-2'}
   <h2>{#each node.content as mark}<Mark mark={mark} />{/each}</h2>
 {:else if node.nodeType === 'heading-3'}
   <h3>{#each node.content as mark}<Mark mark={mark} />{/each}</h3>

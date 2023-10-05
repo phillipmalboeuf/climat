@@ -38,6 +38,7 @@ export interface TypeFormulaireFields {
     cta?: EntryFieldTypes.Symbol;
     lien?: EntryFieldTypes.Symbol;
     inputs?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeInputSkeleton>>;
+    successMessage?: EntryFieldTypes.RichText;
 }
 
 export type TypeFormulaireSkeleton = EntrySkeletonType<TypeFormulaireFields, "formulaire">;

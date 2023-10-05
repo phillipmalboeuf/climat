@@ -1,12 +1,14 @@
 <script lang="ts">
   import type { Entry } from 'contentful'
+  import { page } from '$app/stores'
+
   import type { TypeFormulaireSkeleton } from '$lib/clients/content_types'
   import Document from './document/Document.svelte'
 
   export let section: Entry<TypeFormulaireSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
 </script>
 
-<form id={section.fields.id}>
+<form id={section.fields.id} method="post" action={section.fields.lien}>
   <h3>{section.fields.titre}</h3>
 
   <fieldset>
@@ -30,7 +32,7 @@
       {:else if input.fields.type === 'Checkbox'}
       <fieldset class="options">
         {#each input.fields.options as option}
-        <label for="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}"><input type="checkbox" name={input.fields.id} id="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}" value={option}> {option}</label>
+        <label for="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}"><input type="checkbox" name="{input.fields.id}.{option}" id="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}" value="Oui"> {option}</label>
         {/each}
       </fieldset>
       {:else if input.fields.type === 'Textarea'}
@@ -44,6 +46,13 @@
     <button type="submit">{section.fields.cta}</button>
   </fieldset>
 </form>
+
+{#if $page.form?.success}
+<aside>
+  <Document body={section.fields.successMessage} />
+  <a href={$page.url.pathname} class="button button--alt"><strong>Retour à COMM Climat</strong></a>
+</aside>
+{/if}
 
 <style lang="scss">
   form {
@@ -158,6 +167,28 @@
       @media (max-width: $mobile) { 
         grid-column-end: 2;
       }
+    }
+  }
+
+  aside {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    color: $black;
+    background-color: $banana;
+    padding: $gap * 4;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    .button {
+      color: $black;
+      border: 1px solid;
     }
   }
 </style>

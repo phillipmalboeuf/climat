@@ -30,6 +30,8 @@
     "embla-carousel-auto-height": "^8.0.0-rc14",
     "embla-carousel-autoplay": "^8.0.0-rc14",
     "embla-carousel-svelte": "^8.0.0-rc14",
+    "google-auth-library": "^8.9.0",
+    "google-spreadsheet": "^4.1.0",
     "luxon": "^3.4.3",
     "normalize.css": "^8.0.1"
   }
