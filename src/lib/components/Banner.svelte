@@ -32,7 +32,7 @@
       gap: ($base * $scale * 1);
 
       will-change: transform;
-      animation: slide 20s linear 0s infinite;
+      animation: slide 24s linear 0s infinite;
 
       li {
         color: $black;

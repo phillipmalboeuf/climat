@@ -68,6 +68,10 @@
     &.left {
       figure {
         order: -1;
+        
+        @media (max-width: $mobile) { 
+          padding: 0 ($mobile_gap * 2);
+        }
       }
 
       main {

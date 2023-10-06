@@ -26,6 +26,14 @@
     <Text section={item} small noTitle />
   </details>
   {/each}
+  {:else if section.fields.type === 'Icônes'}
+  <ol>
+    {#each section.fields.list as item}
+    <li>
+      <Text section={item} small left />
+    </li>
+    {/each}
+  </ol>
   {:else}
   <ol>
     {#each section.fields.list as item}
@@ -94,7 +102,6 @@
         margin-top: $gap * 3;
         display: grid;
         column-gap: $gap;
-        row-gap: $gap;
         grid-template-columns: repeat(2, 1fr);
 
         @media (max-width: $mobile) {
@@ -104,8 +111,36 @@
         li {
 
           :global(section) {
-            margin: 0;
+            margin: 0 0 -1px;
             border-top: 1px solid;
+            border-bottom: 1px solid;
+
+            align-items: flex-start;
+
+            @media (max-width: $mobile) {
+              flex-direction: row;
+            }
+          }
+
+
+          :global(main) {
+            // flex: 14;
+
+            :global(p:last-child) {
+              margin-bottom: 0;
+            }
+          }
+
+          :global(figure) {
+            max-width: $gap*1.25;
+
+            @media (max-width: $mobile) {
+              padding: 0;
+            }
+          }
+
+          :global(img) {
+            border-radius: 0;
           }
         }
       }
@@ -129,7 +164,7 @@
           padding-right: $base * $scale * 1;
 
           @media (max-width: $mobile) {
-            padding: 0 $base * $scale * 1;
+            padding: 0 0 0 ($mobile_base * $mobile_scale * 2);
             border-right: none;
             border-bottom: 1px solid;
           }
@@ -148,7 +183,7 @@
             @media (max-width: $mobile) {
               font-size: $mobile_base * $mobile_scale * 2;
               top: $base;
-              left: $mobile_base * $mobile_scale * -0.25;
+              left: $mobile_base * $mobile_scale * -0.02;
             }
           }
 
