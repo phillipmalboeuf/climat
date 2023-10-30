@@ -151,16 +151,17 @@
         margin-top: $gap * 2;
         display: grid;
         column-gap: $gap;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
 
         @media (max-width: $mobile) {
-          grid-template-columns: repeat(1, 1fr);
+          grid-template-columns: repeat(2, 1fr);
         }
 
         li {
 
           :global(section) {
-            margin: 0;
+            padding: 0;
+            margin-bottom: 0;
             // border-top: 1px solid;
             // border-bottom: 1px solid;
 
