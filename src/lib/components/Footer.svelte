@@ -2,11 +2,13 @@
 	import { page } from '$app/stores';  
   import Logo from '$lib/components/Logo.svelte'
 
-  import type { TypeNavigationSkeleton } from '$lib/clients/content_types'
+  import type { TypeListSkeleton, TypeNavigationSkeleton } from '$lib/clients/content_types'
   import type { Entry } from 'contentful'
   import Links from './Links.svelte'
+  import List from './List.svelte'
 
-  export let navigation: Entry<TypeNavigationSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
+  export let list: Entry<TypeListSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
+	export let navigation: Entry<TypeNavigationSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">
 </script>
 
 <footer>
@@ -16,6 +18,9 @@
 		</a>
 	</nav>
 
+	<main>
+		<List section={list} />
+	</main>
 
 	<nav class="bottom">
 		<Links liens={navigation.fields.liens} />
@@ -24,9 +29,6 @@
 
 <style lang="scss">
 	footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
 		padding: $gap * 3;
     min-height: 50vh;
 
@@ -34,18 +36,21 @@
 		background-color: $black;
 
 		@media (max-width: $mobile) {
-			flex-direction: column;
 			padding: $mobile_gap;
 		}
 	}
 
+	main {
+		width: 100%;
+	}
+
 	nav {
 		display: flex;
-		align-items: center;
+		width: 100%;
     gap: $base*$scale*2;
 
     &.bottom {
-      align-self: flex-end;
+			justify-content: flex-end;
     }
 	}
 </style>

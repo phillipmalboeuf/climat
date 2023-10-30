@@ -16,7 +16,7 @@
   <slot />
 </main>
 
-<Footer navigation={data.secondary} />
+<Footer list={data.footer} navigation={data.secondary} />
 
 
 <style lang="scss">

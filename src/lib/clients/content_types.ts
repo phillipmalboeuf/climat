@@ -84,7 +84,7 @@ export type TypeLien<Modifiers extends ChainModifiers, Locales extends LocaleCod
 export interface TypeListFields {
     titre?: EntryFieldTypes.Symbol;
     id?: EntryFieldTypes.Symbol;
-    type?: EntryFieldTypes.Symbol<"Accordéon" | "Icônes" | "Numéros" | "Slider">;
+    type?: EntryFieldTypes.Symbol<"Accordéon" | "Icônes" | "Numéros" | "Slider" | "Logos">;
     list?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeTextSkeleton>>;
     lien?: EntryFieldTypes.EntryLink<TypeLienSkeleton>;
     media?: EntryFieldTypes.AssetLink;

@@ -146,6 +146,55 @@
       }
     }
 
+    &.Logos {
+      ol {
+        margin-top: $gap * 2;
+        display: grid;
+        column-gap: $gap;
+        grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: $mobile) {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        li {
+
+          :global(section) {
+            margin: 0;
+            // border-top: 1px solid;
+            // border-bottom: 1px solid;
+
+            align-items: flex-start;
+
+            @media (max-width: $mobile) {
+              flex-direction: row;
+            }
+          }
+
+
+          :global(main) {
+            display: flex;
+            flex-wrap: wrap;
+
+            :global(h4) {
+              width: 100%;
+              font-family: $display;
+            }
+          }
+
+          :global(img) {
+            max-width: $gap*10;
+            padding: $gap;
+            display: inline-block;
+          }
+
+          :global(img) {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+
     &.Numéros {
       ol {
         margin-top: ($base * $scale * 3);

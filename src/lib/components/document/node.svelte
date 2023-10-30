@@ -3,6 +3,7 @@
   import Mark from './mark.svelte'
 
   import { page } from '$app/stores'
+    import Media from '../Media.svelte';
 
   export let node
 </script>
@@ -41,7 +42,7 @@
   <blockquote>{#each node.content as code}<svelte:self node={code} />{/each}</blockquote>
 
 {:else if node.nodeType === 'embedded-asset-block'}
-<!-- <Picture media={node.data.target} /> -->
+<Media media={node.data.target} />
 {:else if node.nodeType === 'embedded-entry-block'}
   
 {/if}
