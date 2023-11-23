@@ -3,6 +3,7 @@ import { contentful } from '$lib/clients/contentful'
 import type { Entry } from 'contentful'
 import type { PageServerLoad, Actions } from './$types'
 import { doc } from '$lib/clients/sheets'
+import { addMember } from '$lib/clients/cyberimpact'
 
 export const load: PageServerLoad = (async ({ locals, url, params }) => {
   const [[page]] = await Promise.all([
@@ -31,6 +32,12 @@ export const actions: Actions = {
 
     // @ts-ignore
     const row = await sheet.addRow({ ...Object.fromEntries<string>(data) })
+
+    try {
+      await addMember(data.get('email') as string, data.get('prenom') as string, data.get('nom') as string, data.get('organisation') as string, ['61'])
+    } catch (error) {
+      
+    }
 
     return { success: true }
 	}
