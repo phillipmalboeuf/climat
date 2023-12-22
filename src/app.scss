@@ -220,27 +220,40 @@ blockquote {
 }
 
 table {
+  width: 100%;
+  border: 1px solid;
+  border-radius: 1em;
+  margin: ($gap * 1.5) 0;
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
 
-  tr {
+  td,
+  th {
+    text-align: left;
+    padding: ($base * $scale);
+    border-right: 1px solid;
+    border-bottom: 1px solid;
 
-    th {
-      font-weight: inherit;
-      border-top: 1px solid;
-      border-bottom: 1px solid;
+    &:last-child {
+      border-right: none;
     }
 
-    td,
-    th {
-      text-align: left;
-      padding: $base;
-      vertical-align: top;
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
 
-      &:first-child {
-        padding-left: 0;
-      }
+  tr {
+    background-color: #{fade-out($color: #968A84, $amount: 0.9)};
 
-      > p:last-child {
-        margin-bottom: 0;
+    &:nth-child(2n - 1) {
+      background-color: #{fade-out($color: #968A84, $amount: 0.95)};
+    }
+
+    &:last-child {
+      td,
+      th {
+          border-bottom: none;
       }
     }
   }

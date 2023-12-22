@@ -1,9 +1,10 @@
 <script lang="ts">
   import type { Asset } from 'contentful'
 
-  export let media: Asset
+  export let media: Asset<"WITHOUT_UNRESOLVABLE_LINKS">
   export let small: boolean = false
   export let webp: boolean = false
+  export let noLink: boolean = false
 </script>
 
 <style lang="scss">
@@ -27,8 +28,12 @@
       text-shadow: 0 0 5px $black;
     }
   }
-</style>
 
+  a img {
+    cursor: pointer;
+  }
+</style>
+{#if noLink || (media?.fields.description && !media.fields.description.startsWith('http'))}
 <picture class:captioned={media?.fields.description}>
   {#if media?.fields.file}
   {#if small}
@@ -41,7 +46,12 @@
   <img src="{media.fields.file.url}?w=1800{webp ? '&fm=webp' : ''}" alt="{media.fields.title} {media.fields.description}" />
   {/if}
   {/if}
-  {#if media?.fields.description}
+  {#if media?.fields.description && !media.fields.description.startsWith('http')}
   <figcaption>{media.fields.description}</figcaption>
   {/if}
 </picture>
+{:else}
+<a href={media.fields.description} target="_blank" rel="external">
+  <svelte:self {media} {small} {webp} noLink />
+</a>
+{/if}

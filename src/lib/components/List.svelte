@@ -185,11 +185,11 @@
 
           :global(img) {
             max-width: $gap*10;
-            padding: $gap;
+            max-height: $gap*3.5;
+            object-fit: cover;
+            padding: 0;
+            margin-bottom: $gap;
             display: inline-block;
-          }
-
-          :global(img) {
             border-radius: 0;
           }
         }
