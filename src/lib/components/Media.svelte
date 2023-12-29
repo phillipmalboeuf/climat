@@ -8,9 +8,15 @@
 </script>
 
 <style lang="scss">
-  img {
+  img,
+  object {
     display: block;
     width: 100%;
+  }
+
+  object {
+    height: 50vh;
+    margin-bottom: $base;
   }
 
   picture.captioned {
@@ -34,6 +40,12 @@
   }
 </style>
 {#if noLink || (media?.fields.description && !media.fields.description.startsWith('http'))}
+
+{#if media?.fields.file?.contentType?.startsWith('application/pdf')}
+<object data={media.fields.file.url} type="application/pdf" aria-label={media.fields.title}></object>
+<!-- <a id={media.sys.id} href={media.fields.file.url} target='_blank'>{media.fields.title}</a> <a href={media.fields.file.url} download aria-describedby={media.sys.id}>Download</a> -->
+
+{:else}
 <picture class:captioned={media?.fields.description}>
   {#if media?.fields.file}
   {#if small}
@@ -50,6 +62,7 @@
   <figcaption>{media.fields.description}</figcaption>
   {/if}
 </picture>
+{/if}
 {:else}
 <a href={media.fields.description} target="_blank" rel="external">
   <svelte:self {media} {small} {webp} noLink />
