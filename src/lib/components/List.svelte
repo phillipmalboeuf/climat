@@ -183,9 +183,14 @@
             }
           }
 
+          :global(a:has(img)) {
+            width: 100%;
+          }
+
           :global(img) {
-            max-width: $gap*10;
-            max-height: $gap*3.5;
+            width: 100%;
+            // max-width: $gap*10;
+            max-height: $gap*8;
             object-fit: cover;
             padding: 0;
             margin-bottom: $gap;

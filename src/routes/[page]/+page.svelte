@@ -1,7 +1,7 @@
 <script lang="ts">
   import Contenu from '$lib/components/Contenu.svelte'
   import Links from '$lib/components/Links.svelte'
-    import PageHeader from '$lib/components/PageHeader.svelte';
+  import PageHeader from '$lib/components/PageHeader.svelte'
 	import Document from '$lib/components/document/Document.svelte'
 	
 	import type { PageData } from './$types'
