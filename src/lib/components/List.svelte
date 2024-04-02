@@ -189,7 +189,7 @@
 
           :global(img) {
             width: 100%;
-            // max-width: $gap*10;
+            max-width: $gap*11;
             max-height: $gap*8;
             object-fit: cover;
             padding: 0;
