@@ -45,6 +45,10 @@
 <object data={media.fields.file.url} type="application/pdf" aria-label={media.fields.title}></object>
 <!-- <a id={media.sys.id} href={media.fields.file.url} target='_blank'>{media.fields.title}</a> <a href={media.fields.file.url} download aria-describedby={media.sys.id}>Download</a> -->
 
+{:else if media?.fields.file?.contentType?.startsWith('video/')}
+<!-- svelte-ignore a11y-media-has-caption -->
+<video src="{media.fields.file.url}" autoplay muted loop playsinline />
+
 {:else}
 <picture class:captioned={media?.fields.description}>
   {#if media?.fields.file}

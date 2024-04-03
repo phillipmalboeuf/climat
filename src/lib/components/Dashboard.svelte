@@ -16,7 +16,7 @@
       {#if item.fields.text}<strong>{item.fields.text}</strong>{/if}
       {#if item.fields.media}
       <figure>
-        <Media media={item.fields.media} />
+        <Media media={item.fields.media} noLink />
       </figure>
       {/if}
     </a>
@@ -137,7 +137,9 @@
         width: 100%;
         height: 100%;
 
-        :global(img) {
+        :global(img),
+        :global(video) {
+          width: 100%;
           height: 100%;
           object-fit: cover;
         }
