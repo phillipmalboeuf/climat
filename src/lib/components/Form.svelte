@@ -32,13 +32,13 @@
       {:else if input.fields.type === 'Checkbox'}
       <fieldset class="options">
         {#each input.fields.options as option}
-        <label for="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}"><input type="checkbox" name="{input.fields.id}.{option}" id="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}" value="Oui"> {option}</label>
+        <label for="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}"><input type="checkbox" name="{input.fields.id}.{option}" id="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}" checked value="Oui"> {option}</label>
         {/each}
       </fieldset>
       {:else if input.fields.type === 'Textarea'}
-      <textarea name={input.fields.id} id="{section.fields.id}_{input.fields.id}"></textarea>
+      <textarea name={input.fields.id} id="{section.fields.id}_{input.fields.id}">Test</textarea>
       {:else}
-      <input type="text" name={input.fields.id} id="{section.fields.id}_{input.fields.id}">
+      <input type="text" name={input.fields.id} id="{section.fields.id}_{input.fields.id}" value="Test">
       {/if}
     </label>
     {/each}
