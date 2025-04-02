@@ -18,7 +18,7 @@
       {#if input.fields.description}<Document body={input.fields.description} />{/if}
 
       {#if input.fields.type === 'Options'}
-      <select name={input.fields.id} id="{section.fields.id}_{input.fields.id}">
+      <select name={input.fields.id} id="{section.fields.id}_{input.fields.id}" required={input.fields.required}>
         {#each input.fields.options as option}
         <option>{option}</option>
         {/each}
@@ -26,19 +26,19 @@
       {:else if input.fields.type === 'Radio'}
       <fieldset class="options">
         {#each input.fields.options as option}
-        <label for="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}"><input type="radio" name={input.fields.id} id="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}" value={option}> {option}</label>
+        <label for="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}"><input type="radio" name={input.fields.id} id="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}" value={option} required={input.fields.required}> {option}</label>
         {/each}
       </fieldset>
       {:else if input.fields.type === 'Checkbox'}
       <fieldset class="options">
         {#each input.fields.options as option}
-        <label for="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}"><input type="checkbox" name="{input.fields.id}.{option}" id="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}" value="Oui"> {option}</label>
+        <label for="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}"><input type="checkbox" name="{input.fields.id}.{option}" id="{section.fields.id}_{input.fields.id}_{option.replaceAll(' ', '_')}" value="Oui" required={input.fields.required}> {option}</label>
         {/each}
       </fieldset>
       {:else if input.fields.type === 'Textarea'}
-      <textarea name={input.fields.id} id="{section.fields.id}_{input.fields.id}"></textarea>
+      <textarea name={input.fields.id} id="{section.fields.id}_{input.fields.id}" required={input.fields.required}></textarea>
       {:else}
-      <input type="text" name={input.fields.id} id="{section.fields.id}_{input.fields.id}">
+      <input type="text" name={input.fields.id} id="{section.fields.id}_{input.fields.id}" required={input.fields.required}>
       {/if}
     </label>
     {/each}

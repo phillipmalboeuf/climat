@@ -50,6 +50,7 @@ export interface TypeInputFields {
     type?: EntryFieldTypes.Symbol<"Checkbox" | "Options" | "Radio" | "Text" | "Textarea">;
     options?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     description?: EntryFieldTypes.RichText;
+    required?: EntryFieldTypes.Boolean;
 }
 
 export type TypeInputSkeleton = EntrySkeletonType<TypeInputFields, "input">;
