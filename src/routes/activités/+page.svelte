@@ -61,7 +61,7 @@
 
   <br />
 
-  <center><a href="/activités/archives" class="button button--alt">Voir tous les activités passées</a></center>
+  <center><a href="/activités/archives" class="button button--alt">Voir toutes les activités passées</a></center>
 </aside>
 
 
