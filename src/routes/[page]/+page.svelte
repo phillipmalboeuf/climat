@@ -12,7 +12,7 @@
 	<title>{data.page.fields.titre}</title>
 	<meta name="description" content={data.page.fields.description} />
 </svelte:head>
-
+  
 <PageHeader page={data.page} />
 
 <div class:sidebar={!!data.page.fields.sidebar}>

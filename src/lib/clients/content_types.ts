@@ -133,6 +133,8 @@ export interface TypeTextFields {
     media?: EntryFieldTypes.AssetLink;
     lien?: EntryFieldTypes.EntryLink<TypeLienSkeleton>;
     bordures?: EntryFieldTypes.Boolean;
+    cacherLeTitre?: EntryFieldTypes.Boolean;
+    imageEnNoirEtBlanc?: EntryFieldTypes.Boolean;
 }
 
 export type TypeTextSkeleton = EntrySkeletonType<TypeTextFields, "text">;

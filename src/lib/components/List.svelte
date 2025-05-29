@@ -13,14 +13,14 @@
   {#if section.fields.titre}<h2>{section.fields.titre}</h2>{/if}
   {#if section.fields.type === 'Slider'}
   <Slider dots={section.fields.list.length} arrows>
-    {#each section.fields.list as item}
+    {#each section.fields.list ?? [] as item}
     <div class="slider__slide">
       <Text section={item} small left />
     </div>
     {/each}
   </Slider>
   {:else if section.fields.type === 'Accordéon'}
-  {#each section.fields.list as item}
+  {#each section.fields.list ?? [] as item}
   <details>
     <summary><h2>{item.fields.titre}</h2></summary>
     <Text section={item} small noTitle />
@@ -28,7 +28,7 @@
   {/each}
   {:else if section.fields.type === 'Icônes'}
   <ol>
-    {#each section.fields.list as item}
+    {#each section.fields.list ?? [] as item}
     <li>
       <Text section={item} small left />
     </li>
@@ -36,7 +36,7 @@
   </ol>
   {:else}
   <ol>
-    {#each section.fields.list as item}
+    {#each section.fields.list ?? [] as item}
     <li>
       <Text section={item} small />
     </li>
@@ -302,17 +302,16 @@
       ol {
         margin-top: $gap * 2;
         display: grid;
-        column-gap: $gap * 3;
+        column-gap: $gap * 2;
         grid-template-columns: repeat(3, 1fr);
 
         @media (max-width: $mobile) {
-          column-gap: $gap * 2;
           grid-template-columns: repeat(2, 1fr);
         }
 
         @media (max-width: 650px) {
-          column-gap: $gap;
           grid-template-columns: repeat(1, 1fr);
+          margin-bottom: $gap * 2;
         }
  
 
@@ -320,17 +319,28 @@
 
           :global(section) {
             padding: 0;
-            margin-bottom: 0;
             align-items: flex-start;
             flex-direction: row-reverse;
-            
-         
+            column-gap: $gap * 1.25;
 
             @media (max-width: 650px) {
               margin-top: $gap;
+              margin-bottom: $gap;
+              align-items: center;
             }
           }
 
+          :global(p) {
+            margin-bottom: 0;
+          }
+
+          :global(h4) {
+            margin-bottom: 0.25em;
+          }
+
+          :global(h6) {
+            margin-bottom: 0.5em;
+          }
 
           :global(main) {
             display: flex;
@@ -347,16 +357,17 @@
             width: 100%;
           }
 
+          :global(figure) {
+            flex: unset;
+          }
 
           :global(img) {
             width: 100%;
-            max-width: $gap*10;
-            max-height: $gap*10;
+            max-width: $gap*4;
             aspect-ratio: 1/1;
             object-fit: cover;
             padding: 0;
-            margin-bottom: $gap;
-            display: inline-block;
+            margin-bottom: 0;
             border-radius: 50%;
           }
         }

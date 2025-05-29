@@ -5,6 +5,8 @@
   export let small: boolean = false
   export let webp: boolean = false
   export let noLink: boolean = false
+  export let noirEtBlanc: boolean = false
+
 </script>
 
 <style lang="scss">
@@ -35,6 +37,10 @@
     }
   }
 
+  picture.noirEtBlanc {
+    filter: brightness(0%);
+  }
+
   a img {
     cursor: pointer;
   }
@@ -50,7 +56,7 @@
 <video src="{media.fields.file.url}" autoplay muted loop playsinline />
 
 {:else}
-<picture class:captioned={media?.fields.description}>
+<picture class:captioned={media?.fields.description} class:noirEtBlanc={noirEtBlanc}>
   {#if media?.fields.file}
   {#if small}
   <source srcSet="{media.fields.file.url}?w=400{webp ? '&fm=webp' : ''}" media="(max-width: 900px)" />
@@ -69,6 +75,6 @@
 {/if}
 {:else}
 <a href={media.fields.description} target="_blank" rel="external">
-  <svelte:self {media} {small} {webp} noLink />
+  <svelte:self {media} {small} {webp} noLink {noirEtBlanc} />
 </a>
 {/if}
