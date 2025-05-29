@@ -297,5 +297,70 @@
         }
       }
     }
+
+    &.Avatars {
+      ol {
+        margin-top: $gap * 2;
+        display: grid;
+        column-gap: $gap * 3;
+        grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: $mobile) {
+          column-gap: $gap * 2;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 650px) {
+          column-gap: $gap;
+          grid-template-columns: repeat(1, 1fr);
+        }
+ 
+
+        li {
+
+          :global(section) {
+            padding: 0;
+            margin-bottom: 0;
+            align-items: flex-start;
+            flex-direction: row-reverse;
+            
+         
+
+            @media (max-width: 650px) {
+              margin-top: $gap;
+            }
+          }
+
+
+          :global(main) {
+            display: flex;
+            flex: 2;
+            flex-direction: column;
+
+            :global(h4) {
+              width: 100%;
+              font-family: $display;
+            }
+          }
+
+          :global(a:has(img)) {
+            width: 100%;
+          }
+
+
+          :global(img) {
+            width: 100%;
+            max-width: $gap*10;
+            max-height: $gap*10;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            padding: 0;
+            margin-bottom: $gap;
+            display: inline-block;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
   }
 </style>
