@@ -200,7 +200,7 @@
             width: 100%;
             max-width: $gap * 14;
             max-height: $gap * 8;
-            object-fit: cover;
+            object-fit: contain;
             padding: 0;
             margin-bottom: $gap;
             display: inline-block;
